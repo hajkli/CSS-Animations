@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Solar System Animation</title>
+		<style>
+			.stars,
+			.stars2 {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 2px;
+				height: 2px;
+				border-radius: 50%;
+				background: transparent;
+				animation: starTwinkle 6s infinite alternate;
+			}
+			.stars2 {
+				animation-delay: 3s;
+				opacity: 0.7;
+			}
+			.stars {
+				box-shadow: -190px -200px #fff, 90px -290px #fff,
+					300px -450px #fff, 250px 20px #fff, -320px -540px #fff,
+					-470px -200px #fff, 210px -430px #fff, -390px 300px #fff,
+					480px -120px #fff, -50px 350px #fff, 180px 130px #fff,
+					-480px 450px #fff, 330px 280px #fff, -190px -370px #fff,
+					220px 460px #fff, 100px -130px #fff, -260px 380px #fff,
+					400px 320px #fff, -100px -50px #fff, 500px -570px #fff,
+					-460px -340px #fff;
+			}
+			.stars2 {
+				box-shadow: -290px -300px #fff, 190px -390px #fff,
+					-100px -650px #fff, 350px -240px #fff, 420px 160px #fff,
+					-220px 400px #fff, -340px 100px #fff, 200px 400px #fff,
+					120px -250px #fff, -410px 250px #fff, 500px -320px #fff,
+					-80px 170px #fff, -140px -160px #fff, 370px 270px #fff,
+					80px 260px #fff, -260px -90px #fff, -430px 30px #fff,
+					260px -490px #fff, 350px 390px #fff, -370px -240px #fff;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				width: 100vw;
+				background: #000;
+				font-family: sans-serif;
+			}
+			.solar-system {
+				position: relative;
+				height: 100vh;
+				width: 100vw;
+				overflow: hidden;
+			}
+			.sun {
+				position: absolute;
+				z-index: 10;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				background: radial-gradient(#ffec80, #ffc400);
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border-color: orangered;
+				border-style: solid;
+				border-width: 4px;
+				animation: sunPulse 5s linear infinite;
+			}
+			.orbit {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				transform-origin: center;
+				animation: rotateAroundSund linear infinite;
+				background: none !important;
+			}
+			.planet {
+				position: absolute;
+				border-radius: 50%;
+				top: 50%;
+				left: 50%;
+			}
+			.orbit:hover {
+				animation-play-state: paused;
+				cursor: pointer;
+			}
+			.mercury {
+				width: 22px;
+				height: 22px;
+				background: #b9b9b9;
+				animation-duration: 3.5s;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) translateX(80px);
+			}
+			.venus {
+				width: 24px;
+				height: 24px;
+				background: #c99f5e;
+				animation-duration: 5s;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) translateX(130px);
+			}
+			.earth {
+				width: 32px;
+				height: 32px;
+				background: #3b82c4;
+				animation-duration: 8s;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) translateX(205px);
+			}
+			.mars {
+				width: 22px;
+				height: 22px;
+				background: #cf3a24;
+				animation-duration: 10s;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) translateX(250px);
+			}
+			.jupiter {
+				width: 48px;
+				height: 48px;
+				background: #b87710;
+				animation-duration: 18s;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) translateX(330px);
+			}
+
+			@keyframes rotateAroundSund {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			@keyframes sunPulse {
+				0% {
+					border-width: 3px;
+				}
+				25% {
+					border-width: 4px;
+				}
+				50% {
+					border-width: 7px;
+				}
+				75% {
+					border-width: 5px;
+				}
+				100% {
+					border-width: 4px;
+				}
+			}
+			@keyframes starTwinkle {
+				0% {
+					transform: scale(1);
+					opacity: 1;
+				}
+				100% {
+					transform: scale(0.8);
+					opacity: 0.5;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stars"></div>
+		<div class="stars2"></div>
+		<div class="solar-system">
+			<div class="sun"></div>
+			<div class="orbit mercury">
+				<div class="planet mercury"></div>
+			</div>
+			<div class="orbit venus">
+				<div class="planet venus"></div>
+			</div>
+			<div class="orbit earth">
+				<div class="planet earth"></div>
+			</div>
+			<div class="orbit mars">
+				<div class="planet mars"></div>
+			</div>
+			<div class="orbit jupiter">
+				<div class="planet jupiter"></div>
+			</div>
+		</div>
+	</body>
+</html>

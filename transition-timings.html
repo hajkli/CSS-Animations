@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>CSS Animations</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background: #1f1f1f;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				font-family: sans-serif;
+			}
+			.item-1 {
+				background-color: bisque;
+				transition-timing-function: linear;
+			}
+			.item-2 {
+				background-color: brown;
+				transition-timing-function: ease;
+			}
+			.item-3 {
+				background-color: darkgoldenrod;
+				transition-timing-function: ease-in-out;
+			}
+			.item-4 {
+				background-color: darksalmon;
+				transition-timing-function: steps(3);
+			}
+			ul {
+				padding: 30px;
+				margin: 0 10%;
+				width: 80%;
+				box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+				background-color: rgba(255, 255, 255, 0.02);
+			}
+			li {
+				position: relative;
+				display: block;
+				width: 100%;
+				margin-bottom: 8px;
+				height: 100px;
+			}
+			li div {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 200px;
+				height: 100px;
+				transition-property: left;
+				transition-duration: 3s;
+				transition-delay: 0s;
+				background-color: aqua;
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 32px;
+				text-align: center;
+			}
+			ul:hover div {
+				cursor: pointer;
+				left: 80%;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div class="item-1"><span>linear</span></div>
+			</li>
+			<li>
+				<div class="item-2"><span>ease</span></div>
+			</li>
+			<li>
+				<div class="item-3"><span>ease-in-out</span></div>
+			</li>
+			<li>
+				<div class="item-4"><span>steps</span></div>
+			</li>
+		</ul>
+	</body>
+</html>

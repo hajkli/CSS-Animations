@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Animated RGB Button</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background: #1f1f1f;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				font-family: sans-serif;
+			}
+			:root {
+				--button-width: 200px;
+				--button-height: 55px;
+				--button-bg: #2d2d2d;
+				--button-text-color: #ffffff;
+				--animation-duration: 12s;
+				--rgb-gradient: linear-gradient(
+					90deg,
+					#ff0000 0%,
+					#ff0080 12.5%,
+					#8000ff 25%,
+					#0000ff 37.5%,
+					#00ff80 50%,
+					#80ff00 62.5%,
+					#ffff00 75%,
+					#ff8000 87.5%,
+					#ff0000 100%
+				);
+			}
+			button {
+				position: relative;
+				width: var(--button-width);
+				height: var(--button-height);
+				background-color: var(--button-bg);
+				color: var(--button-text-color);
+				font-size: 1rem;
+				font-weight: 600;
+				border: none;
+				border-radius: 8px;
+				cursor: pointer;
+				outline: none;
+			}
+			button::before {
+				content: "";
+				position: absolute;
+				top: -2px;
+				left: -2px;
+				right: -2px;
+				bottom: -2px;
+				border-radius: inherit;
+				background: var(--rgb-gradient);
+				background-size: 800% 100%;
+				opacity: 0;
+				z-index: -1;
+				animation: rotateGradient var(--animation-duration) linear
+					infinite;
+			}
+			button:hover::before {
+				opacity: 1;
+			}
+			@keyframes rotateGradient {
+				0% {
+					background-position: 0% 50%;
+				}
+				100% {
+					background-position: 800% 50%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<button>Click Me</button>
+	</body>
+</html>

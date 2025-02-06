@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>CSS Animations</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background: #1f1f1f;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				font-family: sans-serif;
+			}
+			.subject {
+				width: 100px;
+				height: 100px;
+				margin: 0 60px;
+				background-color: aqua;
+			}
+			.transition {
+				transition: height 2s ease 2s;
+			}
+			.subject:hover {
+				height: 300px;
+				cursor: pointer;
+				background-color: mediumvioletred;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="subject"></div>
+		<div class="subject transition"></div>
+	</body>
+</html>
